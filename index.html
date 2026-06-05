@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
+<title>Clinova — Jasa Pembuatan Website Klinik & Dokter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14;
+  --bg2:#0f141c;
+  --card:#141b26;
+  --line:#1f2a38;
+  --gold:#c9a96a;
+  --gold-soft:#e3cfa3;
+  --text:#e8ecf1;
+  --muted:#8a96a6;
+  --green:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.15}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+
+/* atmosphere */
+.glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.18;z-index:0;pointer-events:none}
+.glow1{width:500px;height:500px;background:var(--gold);top:-150px;right:-100px}
+.glow2{width:400px;height:400px;background:#3a5a8a;bottom:10%;left:-150px;opacity:.12}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(12px);background:rgba(10,14,20,.7);border-bottom:1px solid transparent;transition:.3s}
+nav.scrolled{border-bottom:1px solid var(--line);background:rgba(10,14,20,.9)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1180px;margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;letter-spacing:-.5px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.95rem;transition:.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--gold);color:#0a0e14 !important;padding:10px 22px;border-radius:50px;font-weight:500;font-size:.9rem}
+.burger{display:none;font-size:1.6rem;cursor:pointer;background:none;border:none;color:var(--text)}
+
+/* hero */
+header{position:relative;padding:170px 0 110px;z-index:1}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;border:1px solid var(--line);padding:8px 18px;border-radius:50px}
+header h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-1.5px;margin-bottom:26px;max-width:880px}
+header h1 em{font-style:italic;color:var(--gold-soft)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:580px;margin-bottom:40px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#0a0e14;padding:15px 34px;border-radius:50px;font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:.25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,169,106,.3)}
+.btn-ghost{border:1px solid var(--line);padding:15px 34px;border-radius:50px;font-weight:500;color:var(--text);transition:.25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.stats{display:flex;gap:48px;margin-top:70px;flex-wrap:wrap}
+.stat .num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--gold);font-weight:700}
+.stat .lbl{color:var(--muted);font-size:.9rem}
+
+/* sections */
+section{position:relative;z-index:1;padding:90px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 60px}
+.sec-head .tag{color:var(--gold);font-size:.8rem;letter-spacing:3px;text-transform:uppercase}
+.sec-head h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0;letter-spacing:-1px}
+.sec-head p{color:var(--muted);font-size:1.08rem}
+
+/* portfolio */
+.port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:28px}
+.port-card{display:block;color:inherit;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.3s;cursor:pointer}
+.port-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.port-thumb{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--bg2)}
+.port-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:.4s}
+.port-card:hover .port-thumb img{transform:scale(1.05)}
+.port-thumb .mock{font-family:'Fraunces',serif;font-size:1.5rem;color:#fff;text-align:center;padding:0 20px;z-index:2;font-weight:600}
+.t1{background:linear-gradient(135deg,#0d4f4a,#1a8c7e)}
+.t2{background:linear-gradient(135deg,#1e3a5f,#3d6db5)}
+.t3{background:linear-gradient(135deg,#7a3a52,#c96a8a)}
+.t4{background:linear-gradient(135deg,#5a3a7a,#9a6ac9)}
+.t5{background:linear-gradient(135deg,#7a5a2a,#c99a4a)}
+.port-thumb::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.15),transparent 60%)}
+.port-body{padding:24px}
+.port-body .cat{color:var(--gold);font-size:.78rem;letter-spacing:2px;text-transform:uppercase}
+.port-body h3{font-size:1.35rem;margin:8px 0 10px}
+.port-body p{color:var(--muted);font-size:.95rem}
+.port-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.port-tags span{font-size:.75rem;color:var(--muted);border:1px solid var(--line);padding:4px 12px;border-radius:50px}
+
+/* services */
+#layanan{background:var(--bg2)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.svc{padding:32px;border:1px solid var(--line);border-radius:16px;transition:.3s}
+.svc:hover{border-color:var(--gold);background:var(--card)}
+.svc .ic{width:52px;height:52px;border-radius:12px;background:rgba(201,169,106,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.svc h3{font-size:1.25rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.94rem}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;align-items:stretch}
+.price{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:38px 30px;display:flex;flex-direction:column;transition:.3s;position:relative}
+.price:hover{transform:translateY(-6px)}
+.price.feat{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,169,106,.08),var(--card))}
+.price .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a0e14;font-size:.72rem;font-weight:600;padding:6px 18px;border-radius:50px;letter-spacing:1px}
+.price .pname{font-family:'Fraunces',serif;font-size:1.5rem;margin-bottom:6px}
+.price .pdesc{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.price .amt{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:700;color:var(--gold)}
+.price .amt small{font-size:.9rem;color:var(--muted);font-weight:400}
+.price ul{list-style:none;margin:24px 0;flex-grow:1}
+.price li{padding:9px 0;color:var(--muted);font-size:.95rem;display:flex;gap:10px;align-items:flex-start}
+.price li::before{content:'✓';color:var(--gold);font-weight:700}
+.price .pbtn{text-align:center;padding:13px;border-radius:50px;font-weight:600;transition:.25s}
+.price .pbtn.solid{background:var(--gold);color:#0a0e14}
+.price .pbtn.solid:hover{box-shadow:0 10px 25px rgba(201,169,106,.3)}
+.price .pbtn.line{border:1px solid var(--line);color:var(--text)}
+.price .pbtn.line:hover{border-color:var(--gold)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.step{position:relative;padding-top:20px}
+.step .n{font-family:'Fraunces',serif;font-size:3rem;color:var(--line);font-weight:700;line-height:1}
+.step h3{font-size:1.2rem;margin:10px 0 8px}
+.step p{color:var(--muted);font-size:.94rem}
+
+/* cta */
+#kontak{text-align:center}
+.cta-box{background:linear-gradient(135deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:28px;padding:70px 30px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;width:300px;height:300px;background:var(--gold);filter:blur(130px);opacity:.15;top:-100px;right:-50px}
+.cta-box h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:18px;position:relative}
+.cta-box p{color:var(--muted);font-size:1.1rem;max-width:520px;margin:0 auto 36px;position:relative}
+.wa-btn{background:var(--green);color:#fff;padding:17px 40px;border-radius:50px;font-weight:600;font-size:1.1rem;display:inline-flex;align-items:center;gap:12px;position:relative;transition:.25s}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(37,211,102,.35)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:50px 0 40px;position:relative;z-index:1}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot-in .muted{color:var(--muted);font-size:.9rem}
+.foot-links{display:flex;gap:24px}
+.foot-links a{color:var(--muted);font-size:.9rem;transition:.2s}
+.foot-links a:hover{color:var(--gold)}
+
+/* float wa */
+.float-wa{position:fixed;bottom:26px;right:26px;width:60px;height:60px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;z-index:200;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:.25s;animation:pulse 2.5s infinite}
+.float-wa:hover{transform:scale(1.1)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:24px;gap:20px;border-bottom:1px solid var(--line)}
+  .stats{gap:32px}
+  header{padding:130px 0 70px}
+}
+</style>
+</head>
+<body>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <div class="logo">Clin<span>ova</span></div>
+    <div class="nav-links" id="navlinks">
+      <a href="#portofolio">Portofolio</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#harga">Harga</a>
+      <a href="#proses">Proses</a>
+      <a href="#kontak" class="nav-cta">Konsultasi Gratis</a>
+    </div>
+    <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow reveal">Clinova — Spesialis Website Klinik & Dokter</span>
+    <h1 class="reveal">Website <em>profesional</em> untuk klinik & praktek dokter Anda</h1>
+    <p class="lead reveal">Tingkatkan kepercayaan pasien dengan kehadiran online yang elegan. Profil, jadwal praktek, booking via WhatsApp — semua dalam satu website yang siap pakai.</p>
+    <div class="hero-btns reveal">
+      <a href="#kontak" class="btn-primary">Mulai Sekarang →</a>
+      <a href="#portofolio" class="btn-ghost">Lihat Portofolio</a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num">5+</div><div class="lbl">Template Siap Pakai</div></div>
+      <div class="stat"><div class="num">3 Hari</div><div class="lbl">Rata-rata Pengerjaan</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Responsif di HP</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="portofolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Portofolio</span>
+      <h2>Contoh desain website klinik</h2>
+      <p>Setiap website dibuat custom sesuai brand dan kebutuhan klinik Anda. Berikut beberapa contoh desain kami.</p>
+    </div>
+    <div class="port-grid">
+      <a href="https://portofolioclinova1.netlify.app" target="_blank" class="port-card reveal">
+        <div class="port-thumb"><img src="thumb1.jpg" alt="Preview" loading="lazy"></div>
+        <div class="port-body">
+          <span class="cat">Klinik Umum</span>
+          <h3>Klinik Sehat Sentosa</h3>
+          <p>Website klinik umum dengan jadwal dokter, layanan, dan booking online terintegrasi.</p>
+          <div class="port-tags"><span>Booking WA</span><span>Profil Dokter</span><span>Responsif</span></div>
+        </div>
+      </a>
+      <a href="https://portofolioclinova2.netlify.app" target="_blank" class="port-card reveal">
+        <div class="port-thumb"><img src="thumb2.jpg" alt="Preview" loading="lazy"></div>
+        <div class="port-body">
+          <span class="cat">Klinik Gigi</span>
+          <h3>Bening Dental Care</h3>
+          <p>Landing page klinik gigi modern dengan galeri before-after dan form perjanjian.</p>
+          <div class="port-tags"><span>Galeri</span><span>Testimoni</span><span>Peta Lokasi</span></div>
+        </div>
+      </a>
+      <a href="https://portofolioclinova3.netlify.app" target="_blank" class="port-card reveal">
+        <div class="port-thumb"><img src="thumb3.jpg" alt="Preview" loading="lazy"></div>
+        <div class="port-body">
+          <span class="cat">Klinik Kecantikan</span>
+          <h3>Aura Skin Clinic</h3>
+          <p>Website estetika premium dengan katalog treatment dan harga yang elegan.</p>
+          <div class="port-tags"><span>Katalog</span><span>Daftar Harga</span><span>Responsif</span></div>
+        </div>
+      </a>
+      <a href="https://portofolioclinova4.netlify.app" target="_blank" class="port-card reveal">
+        <div class="port-thumb"><img src="thumb4.jpg" alt="Preview" loading="lazy"></div>
+        <div class="port-body">
+          <span class="cat">Bidan & Ibu Anak</span>
+          <h3>Klinik Bunda & Buah Hati</h3>
+          <p>Website klinik bidan dengan info layanan persalinan, imunisasi, dan konsultasi.</p>
+          <div class="port-tags"><span>Jadwal</span><span>Artikel</span><span>FAQ</span></div>
+        </div>
+      </a>
+      <a href="https://portofolioclinova5.netlify.app" target="_blank" class="port-card reveal">
+        <div class="port-thumb"><img src="thumb5.jpg" alt="Preview" loading="lazy"></div>
+        <div class="port-body">
+          <span class="cat">Klinik Spesialis</span>
+          <h3>Visi Mata Specialist</h3>
+          <p>Website klinik spesialis mata dengan daftar layanan dan profil dokter spesialis.</p>
+          <div class="port-tags"><span>Multi Halaman</span><span>Profil Dokter</span><span>Responsif</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="layanan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Layanan</span>
+      <h2>Apa yang Anda dapatkan</h2>
+      <p>Bukan sekadar website — solusi kehadiran online lengkap untuk praktek Anda.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="ic">🩺</div><h3>Profil Klinik</h3><p>Tampilkan profil dokter, kredensial, dan layanan secara profesional dan terpercaya.</p></div>
+      <div class="svc reveal"><div class="ic">📅</div><h3>Booking WhatsApp</h3><p>Pasien bisa langsung membuat janji lewat tombol WhatsApp tanpa ribet.</p></div>
+      <div class="svc reveal"><div class="ic">📱</div><h3>Mobile Friendly</h3><p>Tampil sempurna di HP, tablet, maupun komputer. Cepat dan ringan.</p></div>
+      <div class="svc reveal"><div class="ic">📍</div><h3>Peta & Lokasi</h3><p>Integrasi Google Maps agar pasien mudah menemukan lokasi praktek Anda.</p></div>
+      <div class="svc reveal"><div class="ic">⭐</div><h3>Testimoni Pasien</h3><p>Bangun kepercayaan dengan menampilkan ulasan pasien yang puas.</p></div>
+      <div class="svc reveal"><div class="ic">🚀</div><h3>SEO Dasar</h3><p>Website Anda mudah ditemukan di Google saat pasien mencari layanan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="harga">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Harga</span>
+      <h2>Paket yang transparan</h2>
+      <p>Pilih paket sesuai kebutuhan. Tidak ada biaya tersembunyi.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal">
+        <div class="pname">Basic</div>
+        <div class="pdesc">Untuk praktek dokter mandiri</div>
+        <div class="amt">Rp 1jt<small>/sekali bayar</small></div>
+        <ul>
+          <li>1 halaman landing page</li>
+          <li>Profil & jam praktek</li>
+          <li>Tombol WhatsApp</li>
+          <li>Responsif di semua perangkat</li>
+          <li>Revisi 2x</li>
+        </ul>
+        <a href="#kontak" class="pbtn line">Pilih Basic</a>
+      </div>
+      <div class="price feat reveal">
+        <div class="badge">PALING LARIS</div>
+        <div class="pname">Standar</div>
+        <div class="pdesc">Untuk klinik berkembang</div>
+        <div class="amt">Rp 3jt<small>/sekali bayar</small></div>
+        <ul>
+          <li>Semua fitur Basic</li>
+          <li>Multi halaman (5 halaman)</li>
+          <li>Galeri & testimoni</li>
+          <li>Integrasi Google Maps</li>
+          <li>SEO dasar</li>
+          <li>Revisi 4x</li>
+        </ul>
+        <a href="#kontak" class="pbtn solid">Pilih Standar</a>
+      </div>
+      <div class="price reveal">
+        <div class="pname">Premium</div>
+        <div class="pdesc">Solusi klinik lengkap</div>
+        <div class="amt">Rp 6jt<small>/sekali bayar</small></div>
+        <ul>
+          <li>Semua fitur Standar</li>
+          <li>Domain + hosting 1 tahun</li>
+          <li>Email profesional</li>
+          <li>Blog / artikel kesehatan</li>
+          <li>Setup & maintenance awal</li>
+          <li>Revisi tak terbatas (30 hari)</li>
+        </ul>
+        <a href="#kontak" class="pbtn line">Pilih Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proses">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Proses</span>
+      <h2>Cara kerja yang mudah</h2>
+      <p>Dari konsultasi hingga website siap pakai dalam hitungan hari.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3>Konsultasi</h3><p>Diskusi kebutuhan klinik Anda lewat WhatsApp, gratis tanpa komitmen.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Desain</h3><p>Kami buatkan desain awal sesuai identitas dan kebutuhan brand Anda.</p></div>
+      <div class="step reveal"><div class="n">03</div><h3>Revisi</h3><p>Sempurnakan bersama hingga Anda benar-benar puas dengan hasilnya.</p></div>
+      <div class="step reveal"><div class="n">04</div><h3>Online</h3><p>Website diluncurkan dan siap menerima pasien baru Anda.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2>Siap membawa klinik Anda online?</h2>
+      <p>Konsultasi gratis sekarang. Ceritakan kebutuhan Anda, dan kami bantu wujudkan website impian klinik Anda.</p>
+      <a href="https://wa.me/6285143289159?text=Halo,%20saya%20tertarik%20membuat%20website%20untuk%20klinik%20saya" class="wa-btn" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.3A10 10 0 1012 2z"/></svg>
+        Chat via WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="logo">Clin<span>ova</span></div>
+    <div class="foot-links">
+      <a href="#portofolio">Portofolio</a>
+      <a href="#harga">Harga</a>
+      <a href="https://wa.me/6285143289159" target="_blank">WhatsApp</a>
+    </div>
+    <div class="muted">© 2026 Clinova. Dibuat dengan ❤️</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6285143289159?text=Halo,%20saya%20tertarik%20membuat%20website%20klinik" class="float-wa" target="_blank" aria-label="WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.3A10 10 0 1012 2z"/></svg>
+</a>
+
+<script>
+// nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
+});
+// close mobile menu on click
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.08)+'s';io.observe(el)});
+</script>
+</body>
+</html>
